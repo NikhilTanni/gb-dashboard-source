@@ -1,0 +1,13 @@
+{
+  "port": 3030,
+  "auth": {
+    "google": {
+      "clientId": "1035475716194-ijl1h65olldot647hen7fb4nm74rrkr8.apps.googleusercontent.com",
+      "secretKey": "HOhTYzh8nKj3OC-w3BhpsmR8"
+    }
+  },
+  "log": {
+      "logLevel": "info",
+      "timestampPattern": "DD-MM-YYYY HH:mm:ss"
+  }
+}

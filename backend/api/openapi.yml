@@ -1,0 +1,58 @@
+openapi: '3.0.2'
+info:
+  title: tnikify backend - 1
+  version: '1.0'
+servers:
+  - url: http://10.0.0.111/
+tags:
+  - name: "auth"
+    description: "everything relted to login"
+paths:
+  /:
+    get:
+      summary: 'home or base path. returns the welcome message and other information'
+      responses:
+        '200':
+          description: OK
+  /api:
+    get:
+      responses:
+        '200':
+          description: OK
+  /api/auth/login:
+    post:
+      tags:
+        - "auth"
+      summary: 'to log into using username and credentials'
+      description: "general auth"
+      operationId: "authentication"
+      requestBody:
+        description: "login data body"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/auth'
+      responses:
+        '401':
+          description: 'Unauthorized / Invalid credentials'
+        '200':
+          description: 'Login successful'
+  /api/auth/google:
+    post:
+      description: "google auth"
+      responses:
+        '200':
+          description: "Login successful"
+        '201':
+          description: "User created & Login successful"
+
+components:
+  schemas:
+    auth:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
